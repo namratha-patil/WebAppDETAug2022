@@ -1,0 +1,31 @@
+﻿<style>
+    table, th, td {
+        border: 5px black;
+        margin: 2rem auto;
+        width: 100px;
+        height: 100px;
+        border-style: solid;
+    }
+</style>
+
+<div class="table-responsive">
+    <p>Details</p>
+    <table style="width:50%" , class="table">
+        <tr>
+            <th style="width:30%">FriendId</th>
+            <th style="width:30%">FriendName</th>
+            <th style="width:30%">Place</th>
+            <th style="width:40%">   </th>
+        </tr>
+        @foreach (Friend p in Model)
+        {
+            <tr>
+                <td>@p.FriendId </td>
+                <td>@p.FriendName </td>
+                <td>@p.Place </td>
+                <td> </td>
+
+            </tr>
+        }
+    </table>
+</div>
