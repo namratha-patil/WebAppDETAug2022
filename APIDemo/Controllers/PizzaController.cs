@@ -2,6 +2,7 @@
 using APIDemo.Service;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using System.Web.Http.OData;
 
 namespace APIDemo.Controllers
 {
@@ -12,6 +13,7 @@ namespace APIDemo.Controllers
 
 
         [HttpGet]
+        [EnableQuery]
         public ActionResult<List<Pizza>> GetAll() =>
       PizzaService.GetAll();
 

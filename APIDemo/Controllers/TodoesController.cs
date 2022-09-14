@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using APIDemo.Data;
 using APIDemo.Models;
+using System.Web.Http.OData;
 
 namespace APIDemo.Controllers
 {
@@ -22,7 +23,9 @@ namespace APIDemo.Controllers
         }
 
         // GET: api/Todoes
+        [EnableQuery]
         [HttpGet]
+       
         public async Task<ActionResult<IEnumerable<Todo>>> GetTodoItem()
         {
           if (_context.TodoItem == null)
@@ -93,7 +96,8 @@ namespace APIDemo.Controllers
             _context.TodoItem.Add(todo);
             await _context.SaveChangesAsync();
 
-            return CreatedAtAction("GetTodo", new { id = todo.Id }, todo);
+            //return CreatedAtAction("GetTodo", new { id = todo.Id }, todo);
+            return CreatedAtAction(nameof(GetTodo), new { id = todo.Id }, todo);
         }
 
         // DELETE: api/Todoes/5
